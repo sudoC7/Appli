@@ -48,3 +48,7 @@
         ?>
     </body>
 </html>
+
+
+
+<!-- create a function which display the number article in the basket -->
