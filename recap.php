@@ -30,13 +30,14 @@
                 $totalGeneral = 0;
                 foreach($_SESSION['products'] as $index => $product){
                     echo "<tr>",
-                            "<td>".$index."</td>",
+                            "<td>".($index+=1)."</td>",
                             "<td>".$product['name']."</td>",
                             "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                             "<td>".$product['qtt']."</td>",
                             "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                          "</td>";
                     $totalGeneral += $product['total'];
+                    ($index-=1);
                 }
                 echo "<tr>",
                         "<td colspan=4>Total général : </td>",

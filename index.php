@@ -42,8 +42,8 @@
 					</label>
 					
 				</form>
-				<div class=" border m-3 p-3 alert alert-success" role="alert">
-					<p>Votre produit à bien été enregistré !</p>
+				<div class="border m-3 p-3 alert alert-success" role="alert">
+					<p class="mb-0">Votre produit à bien été enregistré !</p>
 				</div>
 				
 				
