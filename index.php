@@ -12,7 +12,7 @@
 		<div class="d-flex flex-column mx-auto p-2">
 
 			<div class="d-flex flex-column">
-
+ 
 				<div class="mb-5">
 					<button class="btn btn-primary">Ajouter produit</button>
 					<a href="recap.php" class="btn btn-light text-primary">Panier</a>
