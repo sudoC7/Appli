@@ -1,14 +1,13 @@
 <?php 
     session_start();
-    header("Location:index.php");
     
-
+    
     if(isset($_POST['submit'])){
- 
+        
         $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
         $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT);
-
+        
         if($name && $price && $qtt){
 
             $product = [
@@ -17,22 +16,23 @@
                 "qtt" => $qtt,
                 "total" => $price*$qtt
             ];
-
+            
             $_SESSION['products'][] = $product;
-
+            
             $_SESSION['messageAlert'] = "<div class='border m-3 p-3 alert alert-success' role='alert'>
             <p class='mb-0'>Votre produit à bien été enregistré !</p>
-        </div>";
-
+            </div>";
+            
         } else {
-
+            
             $_SESSION['messageAlert'] = "<div class='border m-3 p-3 alert alert-danger' role='alert'>
             <p class='mb-0'>Votre produit n'a pas été enregistré !</p>
-        </div>";  
-
+            </div>";  
+            
         }
     }
-
+    
+    header("Location:index.php");
 
     if(isset($_GET['action'])) {
 

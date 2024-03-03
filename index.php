@@ -15,7 +15,8 @@
 		<div class="d-flex flex-column mx-auto p-2">
 
 			<div class="d-flex flex-column">
- 
+
+			<!-- Le deux boutons d'en haut "panier" et "ajouter le produit"  -->
 				<div class="mb-5">
 					<button class="btn btn-primary">Ajouter produit</button>
 					<a href="recap.php" class="text-reset text-decoration-none">
@@ -31,12 +32,14 @@
 				</div>
 
 				<h1 class="text-primary">Ajouter un produit</h1>
+
+				<!-- Lz formulaire -->
 				<form action="traitement.php?action=add" class="d-flex flex-column" method="post">
 					
-						<label class="mb-2">
-							<p class="mb-0">Nom du produit : </p>
-							<input class="rounded" type="text" name="name">
-						</label>
+					<label class="mb-2">
+						<p class="mb-0">Nom du produit : </p>
+						<input class="rounded" type="text" name="name">
+					</label>
 						
 					<label class="mb-2">
 						<p class="mb-0">Prix du produit en € : </p>
@@ -48,20 +51,18 @@
 						<input class="rounded" type="number" name="qtt">
 					</label>
 					
+					<!-- boutton ajout de produit -->
 					<label>
 						<input type="submit" class="btn btn-primary" name="submit" value="Ajouter le produit">
 					</label>
-					
 				</form>
+
 				<?php 
 					if (isset($_SESSION['messageAlert'])) {
-						echo "".$_SESSION['messageAlert']."";
+						echo $_SESSION['messageAlert'];
 						unset($_SESSION['messageAlert']);
 					}
 				?>
-				<!-- <div class='border m-3 p-3 alert alert-success' role='alert'>
-					<p class='mb-0'>Votre produit à bien été enregistré !</p>
-				</div> -->
 				
 			</div>
 	  	</div>

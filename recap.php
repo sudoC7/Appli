@@ -35,23 +35,27 @@
                                 "<td>".($index+=1)."</td>",
                                 "<td>".$product['name']."</td>",
                                 "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td>".$product['qtt']."</td>",
+                                "<td><label><input type='submit' class='btn btn-light btn-sm rounded-circle border' name='add' value='+'></label>".$product['qtt']."<label>
+						<input type='submit' class='btn btn-light btn-sm rounded-circle border' name='sumbit' value='-'>
+					</label><label>
+                    <input type='submit' class='btn btn-primary rounded-pill' name='delete' value='delete'>
+                </label></td>",
                                 "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                             "</td>";
                         $totalGeneral += $product['total'];
                         
                         ($index-=1);
                     }
-                    
+
                     echo "<tr>",
-                            "<td colspan=4>Total général : </td>",
+                            "<td colspan=4>Total général : <label>
+                            <input type='submit' class='btn btn-primary rounded-pill' name='clear' value='clear'>
+                        </label></td>",
                             "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>","</tr>",
                             "</tbody>",
                         "</table>";
                 }
-                
             ?>
-
         </div>
         <div class="container mt-3">
             <a href="index.php" class="text-reset text-decoration-none"><button type="button" class="btn btn-primary"> < Retour</button></a>
