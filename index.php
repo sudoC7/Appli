@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 ">
 		<title>Ajout produit</title>
 		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"></link>
+		<link rel="jsp" href="recap.php"></link>
 	</head>
 	<body>
 	
@@ -17,27 +18,20 @@
  
 				<div class="mb-5">
 					<button class="btn btn-primary">Ajouter produit</button>
-
 					<a href="recap.php" class="text-reset text-decoration-none">
 						<button type="button" class="btn btn-light text-primary position-relative">
 						Panier
-						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 						<?php
 							session_start();
-							$add_in_Basket = 0;
-
-							if(isset($_POST['submit'])) {
-								echo $add_in_Basket +=1;
-							};
-						?>
-						<span class="visually-hidden">unread messages</span>
-						</span>
+							require('functions.php');
+							nbrShop();
+						?> 
 						</button>
 					</a>
 				</div>
 
 				<h1 class="text-primary">Ajouter un produit</h1>
-				<form action="traitement.php" class="d-flex flex-column" method="post">
+				<form action="traitement.php?action=add" class="d-flex flex-column" method="post">
 					
 						<label class="mb-2">
 							<p class="mb-0">Nom du produit : </p>
@@ -59,10 +53,15 @@
 					</label>
 					
 				</form>
-
-				<div class="border m-3 p-3 alert alert-success" role="alert">
-					<p class="mb-0">Votre produit à bien été enregistré !</p>
-				</div>
+				<?php 
+					if (isset($_SESSION['messageAlert'])) {
+						echo "".$_SESSION['messageAlert']."";
+						unset($_SESSION['messageAlert']);
+					}
+				?>
+				<!-- <div class='border m-3 p-3 alert alert-success' role='alert'>
+					<p class='mb-0'>Votre produit à bien été enregistré !</p>
+				</div> -->
 				
 			</div>
 	  	</div>

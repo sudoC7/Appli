@@ -13,7 +13,7 @@
         <div class="container d-flex border border-black mt-3">
 
             <?php 
-                
+
                 if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
                     echo "<p>Aucun produit en session...</p>";
                 }    
@@ -39,14 +39,17 @@
                                 "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                             "</td>";
                         $totalGeneral += $product['total'];
+                        
                         ($index-=1);
                     }
+                    
                     echo "<tr>",
                             "<td colspan=4>Total général : </td>",
                             "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>","</tr>",
                             "</tbody>",
                         "</table>";
                 }
+                
             ?>
 
         </div>
