@@ -10,7 +10,7 @@
 	<body>
 	
 
-	<div class="container h-100 d-flex justify-content-center align-items-center" > <!--    class="container h-100 d-flex justify-content-center align-items-center"            class="container-xl mx-auto p-5"             class="container"  style="width: 400px;"-->
+	<div class="container h-100 d-flex justify-content-center align-items-center" > 
       	
 		<div class="d-flex flex-column mx-auto p-2">
 
@@ -24,6 +24,7 @@
 						Panier
 						<?php
 							session_start();
+							// session_destroy();
 							require('functions.php');
 							nbrShop();
 						?> 
@@ -58,6 +59,7 @@
 				</form>
 
 				<?php 
+					session_start();
 					if (isset($_SESSION['messageAlert'])) {
 						echo $_SESSION['messageAlert'];
 						unset($_SESSION['messageAlert']);

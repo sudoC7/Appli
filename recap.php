@@ -1,5 +1,6 @@
 <?php
     session_start();
+    // session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,21 +36,21 @@
                                 "<td>".($index+=1)."</td>",
                                 "<td>".$product['name']."</td>",
                                 "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td><label><input type='submit' class='btn btn-light btn-sm rounded-circle border' name='add' value='+'></label>".$product['qtt']."<label>
-						<input type='submit' class='btn btn-light btn-sm rounded-circle border' name='sumbit' value='-'>
+                                "<td><label><a  href='traitement.php?action=up-qtt&id=".($index-=1)."' class='btn btn-light btn-sm rounded-circle border' name='up-qtt' value='+'>+</a></label>".$product['qtt']."<label>
+						<a  href='traitement.php?action=down-qtt&id=".($index)."' class='btn btn-light btn-sm rounded-circle border' name='down-qtt' value='-'>-</a>
 					</label><label>
-                    <input type='submit' class='btn btn-primary rounded-pill' name='delete' value='delete'>
+                    <a  href='traitement.php?action=delete&id=".($index)."' type='submit' class='btn btn-primary rounded-pill' name='delete' value='delete'>delete</a>
                 </label></td>",
                                 "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
                             "</td>";
                         $totalGeneral += $product['total'];
                         
-                        ($index-=1);
+                        ($index=1);
                     }
 
                     echo "<tr>",
                             "<td colspan=4>Total général : <label>
-                            <input type='submit' class='btn btn-primary rounded-pill' name='clear' value='clear'>
+                            <a href='traitement.php?action=clear' class='btn btn-primary rounded-pill' name='clear' value='clear'>Clear</a>
                         </label></td>",
                             "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>","</tr>",
                             "</tbody>",
