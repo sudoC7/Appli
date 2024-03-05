@@ -4,8 +4,6 @@
     
     $id = (isset($_GET['id'])) ? ($_GET['id']) : null;
     
-    
-    
     if(isset($_GET['action'])) {
 
         switch($_GET['action']) {
@@ -40,45 +38,51 @@
                         
                     }
                 }
-                
                 header("Location:index.php");
 
                 die;
                 break;
             case "delete":
 
+                //Suppression d'un article précis 
                 if(isset($_SESSION['products'])) {
-                    var_dump($_SESSION['products'][1]["qtt"]++);
+                    unset($_SESSION['products'][$id]);
                 }
-
                 header('location:recap.php');
 
                 die;
                 break;
             case "clear":   
 
+                //Suppression de tous les articles du panier 
                 unset($_SESSION['products']);
                 header('location:recap.php');
-                
+
                 die;
                 break;
             case "up-qtt":
 
+                //Incrémentation d'article 
                 if(isset($_SESSION['products'])) {
-                    var_dump($_SESSION['products'][1]["qtt"]++);
+                    $_SESSION['products'][$id]["qtt"]++;
+                    $_SESSION['products'][$id]['total'] = $_SESSION['products'][$id]['price'] * $_SESSION['products'][$id]['qtt'];
                 }
-
                 header('location:recap.php');
 
                 die;
                 break;
             case "down-qtt":
 
-                // if(isset($_SESSION['products'])) {
-                //     var_dump($_SESSION['products'][1]["qtt"]--);
-                // }
+                //Décrémentation d'article 
+                if(isset($_SESSION['products'])) {
+                    $_SESSION['products'][$id]["qtt"]--;
+                    if($_SESSION['products'][$id]['total'] != 1) {
+                        $_SESSION['products'][$id]['total'] = $_SESSION['products'][$id]['price'] * $_SESSION['products'][$id]['qtt'];
+                    } else {
+                        unset($_SESSION['products'][$id]);
+                    }
 
-              
+                }
 
                 header('location:recap.php');
 

@@ -59,7 +59,7 @@
 				</form>
 
 				<?php 
-					session_start();
+					// session_start();
 					if (isset($_SESSION['messageAlert'])) {
 						echo $_SESSION['messageAlert'];
 						unset($_SESSION['messageAlert']);
