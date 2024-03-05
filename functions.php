@@ -21,4 +21,10 @@
         }
     }
 
+    function delete() {
+        if(isset($_SESSION['products'])) {
+            
+        }
+    }
+
 ?>

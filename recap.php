@@ -64,6 +64,18 @@
         <div class="container mt-3">
             <a href="index.php" class="text-reset text-decoration-none"><button type="button" class="btn btn-primary"> < Retour</button></a>
         </div>
+                <?php
+                if (isset($_SESSION['messageAlertClear'])) {
+                    echo $_SESSION['messageAlertClear'];
+                    unset($_SESSION['messageAlertClear']);
+                }
+                ?>
+                <?php
+                if (isset($_SESSION['messageAlertDelAnArticle'])) {
+                    echo $_SESSION['messageAlertDelAnArticle'];
+                    unset($_SESSION['messageAlertDelAnArticle']);
+                }
+                ?>
     </body>
 </html>
 
