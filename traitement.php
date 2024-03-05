@@ -49,9 +49,9 @@
 
                 //Suppression d'un article précis 
                 if(isset($_SESSION['products'])) {
-                    unset($_SESSION['products'][$id]);
                     $_SESSION['messageAlertDelAnArticle'] = "<div class='border m-3 p-3 alert alert-success' role='alert'>".
-                    "<p class='mb-0'>Vous avez retiré un article !</p></div>";
+                    "<p class='mb-0'>Vous avez retiré l'article : ".$_SESSION['products'][$id]['name']."</p></div>";
+                    unset($_SESSION['products'][$id]);
                 }
                 header('location:recap.php');
 
@@ -88,9 +88,9 @@
                     if($_SESSION['products'][$id]['total'] != 1) {
                         $_SESSION['products'][$id]['total'] = $_SESSION['products'][$id]['price'] * $_SESSION['products'][$id]['qtt'];
                     } else {
-                        unset($_SESSION['products'][$id]);
                         $_SESSION['messageAlertDelAnArticle'] = "<div class='border m-3 p-3 alert alert-success' role='alert'>".
-                    "<p class='mb-0'>Vous avez retiré un article !</p></div>";
+                    "<p class='mb-0'>Vous avez retiré l'article : ".$_SESSION['products'][$id]['name']."</p></div>";
+                        unset($_SESSION['products'][$id]);
                     }
                 }
 
