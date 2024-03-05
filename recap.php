@@ -1,16 +1,12 @@
 <?php
     session_start();
-    // session_destroy();
+    ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"></link>
-        <title>Récapitulatif des produits</title>
-    </head>
-    <body>
+<?php 
+    $title = "Récapitulatif des produits";
+    #other php code here
+?>
+
         <div class="container d-flex border border-black mt-3">
 
             <?php 
@@ -48,7 +44,7 @@
                             "</td>";
                         $totalGeneral += $product['total'];
                         
-                        // ($index-=1);
+                        
                     }
 
                     echo "<tr>",
@@ -76,9 +72,9 @@
                     unset($_SESSION['messageAlertDelAnArticle']);
                 }
                 ?>
-    </body>
-</html>
 
 
-
-<!-- create a function which display the number article in the basket -->
+<?php 
+    $content = ob_get_clean();
+    require_once "template.php";
+?>

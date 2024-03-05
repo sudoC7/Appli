@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html> 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0 ">
-		<title>Ajout produit</title>
-		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"></link>
-		<link rel="jsp" href="recap.php"></link>
-	</head>
-	<body>
+
+
+<?php
+	session_start();
+	ob_start();
+?>
 	
+<?php 
+    $title = "Ajout produit";
+    #other php code here
+?>
 
 	<div class="container h-100 d-flex justify-content-center align-items-center" > 
       	
@@ -23,8 +23,7 @@
 						<button type="button" class="btn btn-light text-primary position-relative">
 						Panier
 						<?php
-							session_start();
-							// session_destroy();
+							// session_start();
 							require('functions.php');
 							nbrShop();
 						?> 
@@ -68,6 +67,8 @@
 	  	</div>
 	</div>
 
-	</body>
-</html>
 
+<?php	
+	$content = ob_get_clean();
+	require_once "template.php";
+?>
